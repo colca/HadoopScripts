@@ -13,14 +13,17 @@ ARGF.each do |line|
   video = JSON.parse(line)
   likeCount = video.fetch("statistics").fetch("likeCount")
   dislikeCount = video.fetch("statistics").fetch("dislikeCount")
+  viewCount = video.fetch("statistics").fetch("viewCount")
   
-  if likeCount == "0"
-     ratio = 0
-  else
-     ratio = (dislikeCount.to_f / likeCount.to_f).round(3)
+  if dislikeCount == "0"
+     dislikeCount = 0.1
   end
+
+  ratio = (likeCount.to_f / dislikeCount.to_f).round(3)
+  heuristic = viewCount.to_f * ratio
+
    
-  key = ratio 
+  key = heuristic 
   #output to stdout 
   puts key.to_s + "\t" + line
 end

@@ -18,8 +18,10 @@ ARGF.each do |line|
   dislikeCount = video.fetch("statistics").fetch("dislikeCount")
   
   category = "hiphop"
+
+  heuristic = 0.0
   if likeCount == 0
-    heuristic = 0
+    heuristic = 0.0
   elsif 
     heuristic = (dislikeCount.to_f / likeCount.to_f).round(3)
   end

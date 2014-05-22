@@ -9,8 +9,9 @@ ARGF.each do |line|
   #Aggregate video data if there are many under same id
   #output only the first one 
   if curKey != key
+    # output dancer(key), category_id,  video_count
     if curKey && curKey != "nil" && total >= 1
-      puts curKey + "\t" + 1.to_s
+      puts curKey + "\t" + 1.to_s + "\t" + total.to_s
     end
     curKey = key
     total = 1

@@ -58,7 +58,8 @@ ARGF.each do |line|
 
     #player
     embedHtml = video.fetch("player").fetch("embedHtml")
-    embedHtml = embedHtml.gsub(/\/>/,'>')
+    embedHtml = embedHtml.gsub(/\/>/,'')
+    embedHtml = embedHtml.gsub(/<iframe/, '')
 
     #added columns
     # dancer 
