@@ -19,12 +19,12 @@ ARGF.each do |line|
   
   category = "hiphop"
 
-  heuristic = 0.0
-  if likeCount == 0
-    heuristic = 0.0
-  elsif 
-    heuristic = (dislikeCount.to_f / likeCount.to_f).round(3)
+  if dislikeCount == "0"
+    dislikeCount = 0.1
   end
+  
+  ratio = (likeCount.to_f / dislikeCount.to_f).round(3)
+  heuristic = (viewCount.to_f * ratio).round(3)
 
   #output to stdout 
   puts  key + "\t" + heuristic.to_s + "\t" + category + "\t" + line  

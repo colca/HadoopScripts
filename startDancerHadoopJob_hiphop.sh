@@ -10,7 +10,7 @@ MAPPER=dancerMapper.rb
 REDUCER=dancerReducer.rb
 echo $HSTREAMING
 
-$HSTREAMING -mapper $MAPPER -file $MAPPER -reducer $REDUCER -file $REDUCER -input './input/hiphopdance/2014-1*/v*' -output ./dancer_output/hiphop2014 -jobconf "PATH=$PATH:/home/hduser/.rvm"
+$HSTREAMING -mapper $MAPPER -file $MAPPER -reducer $REDUCER -file $REDUCER -input './input/hiphopdance/2014*/*' -output ./dancer_output/hiphop2014 -jobconf "PATH=$PATH:/home/hduser/.rvm"
 
 #$HSTREAMING -mapper $MAPPER -file MAPPER -reducer $REDUCER -file $REDUCER -input './input/jazzdance/2013*/*' -output ./jazzVC2013 -jobconf "PATH=$PATH:/home/hduser/.rvm"
 
